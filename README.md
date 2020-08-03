@@ -15,13 +15,13 @@ Or you can also choose the smaller one at [GD32 RISC-V Pico Board](https://stage
 # How to use
 To use this reposity, you will need a GD32VF103 seires board.
 
-*First, buy a GD32 RISC-V Nano/Pico.
+* First, buy a GD32 RISC-V Nano/Pico.
 
-*Second, follow the guide below to construce the environment to build the source code.
+* Second, follow the guide below to construce the environment to build the source code.
 
-*Third, upload the code through DFU mode, and ensure the on-board green LED flash.
+* Third, upload the code through DFU mode, and ensure the on-board green LED flash.
 
-*Fourth, Now the board turned into RV-Link, so you can connect to another target (such as another GD32 RISC-V Board or any development board),
+* Fourth, Now the board turned into RV-Link, so you can connect to another target (such as another GD32 RISC-V Board or any development board),
 ...follow the JTAG pinout, and use debugger to start yout journy of embedded system.
 
 # Environment Setup
