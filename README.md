@@ -1,4 +1,4 @@
-# RV-Link Introduction/RV-Link簡介
+# RV-Link Introduction
 
 RV-Link is a debugger which made up by RISC-V MCU GD32VF103CBT6
 
@@ -19,7 +19,7 @@ RV-Link是一個使用GD32VF103 RISC-V架構微處理器的除錯計專案
 
 或者也可以買到更小更便宜的[GD32 RISC-V Pico Board](https://stage.mapleboard.org/gd32-risc-v-pico-product-page/)
 
-# How to use/如何使用  
+# How to use
 
 To use this reposity, you will need a GD32VF103 seires board.
 And there are two ways to use this repository,  
@@ -53,12 +53,12 @@ To build the firmware form source, you will need:
 
 * 第四，現在開發板已經化身為RV-Link，你可以將任意板子透過JTAG的腳位規範連接到RV-Link，利用這個除錯器開起嵌入式系統的開發之旅吧！  
 
-# References/參考資料  
+# References
 
 * [GD32VF103CBT6 Datasheet]()
 * [PlatformIO official website]()
 
-# 1. Environment Setup/環境建置  
+# 1. Environment Setup
 
 The GD32V development environment may be different depending on the OS of your PC.  
 There are three common used operation system, **Linux**, **Windows**, and **OS X**.
@@ -72,14 +72,28 @@ Benefit from the spirit of open source of Linux, there are many wayes to build t
 
 * [RISC-V GNU toolchain](https://github.com/riscv/riscv-gnu-toolchain)
 
-### 1.1.1 PlatformIO
-[PlatformIO environment setup](https://docs.platformio.org/en/latest/integration/ide/pioide.html)  
+### 1.1.1 PlatformIO  
+
+The PlatformIO has it's own atrical to tell you how to install their extension on Visual Studio Code (VSCode) [HERE](https://docs.platformio.org/en/latest/integration/ide/pioide.html)  
 
 繁體中文版教學連結：[GD32 RISC-V 開發板的PlatformIO開發環境建置](https://stage.mapleboard.org/platformio-environment-setup/)  
 
-platform = gd32v@1.1.1
+Open your VSCode and platformIO, install GD32V platform 
+
+After you done the whole process of installation of PlatformIO, then download this repository into a specificated directory.  
+
+Make sure the code in **platform.ini** below is specify the platform version is gd32v@1.1.1
+platform = gd32v@1.1.1  
+
+And you can go to Upload page of this manual.
 
 ### 1.1.2 RISC-V GNU Toolchain
+
+To build whole things from scratch without PlatformIO is a channalge, but we have done this before, so just follow our step and enjoy the tast of success.
+
+
+The RISC-V GNU toolchain can be download [HERE](https://github.com/riscv/riscv-gnu-toolchain) by RISC-V foundation.
+
 
 
 # 2. Upload Firmware to GD32 RISC-V Nano/Pico  
