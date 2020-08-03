@@ -21,6 +21,14 @@ RV-Link是一個使用GD32VF103 RISC-V架構微處理器的除錯計專案
 
 # How to use/如何使用
 To use this reposity, you will need a GD32VF103 seires board.
+And there are two ways to use this repository,  
+One is **Only upload prebuild firmware**  
+
+Another is **Build firmware from source code**
+
+If you only want to upload prebuild firmware, follow the step [HERE]()
+
+If you wwant to build firmware from source code, keep reading this documentation.
 
 * First, buy a GD32 RISC-V Nano/Pico. 
 
@@ -29,6 +37,7 @@ To use this reposity, you will need a GD32VF103 seires board.
 * Third, upload the code through DFU mode, and ensure the on-board green LED flash. 
 
 * Fourth, Now the board turned into RV-Link, so you can connect to another target (such as another GD32 RISC-V Board or any development board), follow the JTAG pinout, and use debugger to start yout journy of embedded system!   
+
 
 要使用這個資料庫，你會需要DS32VF103系列的開發板  
 
@@ -40,15 +49,23 @@ To use this reposity, you will need a GD32VF103 seires board.
 
 * 第四，現在開發板已經化身為RV-Link，你可以將任意板子透過JTAG的腳位規範連接到RV-Link，利用這個除錯器開起嵌入式系統的開發之旅吧！  
 
-# References/參考資料
+# References/參考資料  
+
 * [GD32VF103CBT6 Datasheet]()
 * [PlatformIO official website]()
 
-# Environment Setup/環境建置
+# Environment Setup/環境建置  
+
+The GD32V development environment may be different depending on the OS of your PC.  
+There are three common used operation system, **Linux**, **Windows**, and **OS X**.
+Please make sure which OS you are using, and follow the guide to setup your development environment.  
+
 
 ## For Linux user:
-Benefit from the spirit of open source of Linux, there are many wayes to build the RV-Link firmware, we have two recommend method:
-* [PlatformIO](https://platformio.org/?utm_source=github&utm_medium=core) 
+Benefit from the spirit of open source of Linux, there are many wayes to build the RV-Link firmware, we have two recommend method:  
+
+* [PlatformIO](https://platformio.org/?utm_source=github&utm_medium=core)  
+
 * [RISC-V GNU toolchain](https://github.com/riscv/riscv-gnu-toolchain)
 
 ### PlatformIO
@@ -86,7 +103,7 @@ You will get two directeries that is "GD32 MCU Dfu Drivers_v1.0.1.2316" and "GD3
 You can download the latest GD32VF103 DFU Tool at 
 dfu-util  
 
-## For Mac user:
+## For OS X user:
 Follow the PlatformIO tutorial [HERE](https://platformio.org/platformio-ide)  
 
 And the other step is like as Linux tutorial.
