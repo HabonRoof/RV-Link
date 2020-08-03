@@ -26,7 +26,7 @@ One is **Only upload prebuild firmware**
 
 Another is **Build firmware from source code**
 
-If you only want to upload prebuild firmware, follow the step [HERE](https://github.com/HabonRoof/RV-Link/blob/master/README.md#references%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99)
+If you only want to upload prebuild firmware, follow the step [HERE](https://github.com/HabonRoof/RV-Link/blob/master/README.md#UploadFirmwaretoGD32RISC-VNano/Pico)
 
 If you wwant to build firmware from source code, keep reading this documentation.
 
@@ -111,3 +111,5 @@ And the other step is like as Linux tutorial.
 
 The enviorment setup guide
 The dfu-util tool
+
+# Upload Firmware to GD32 RISC-V Nano/Pico
