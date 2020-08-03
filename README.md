@@ -52,24 +52,29 @@ Benefit from the spirit of open source of Linux, there are many wayes to build t
 * [RISC-V GNU toolchain](https://github.com/riscv/riscv-gnu-toolchain)
 
 ### PlatformIO
-[PlatformIO environment setup](https://docs.platformio.org/en/latest/integration/ide/pioide.html)
-繁體中文版教學連結：[GD32 RISC-V 開發板的PlatformIO開發環境建置](https://stage.mapleboard.org/platformio-environment-setup/)
+[PlatformIO environment setup](https://docs.platformio.org/en/latest/integration/ide/pioide.html)  
 
-platform = gd32v@1.1.1
+繁體中文版教學連結：[GD32 RISC-V 開發板的PlatformIO開發環境建置](https://stage.mapleboard.org/platformio-environment-setup/)  
 
-dfu-util
+99dfu-rule
 
-risc-v tool chain
+platform = gd32v@1.1.1  
 
-GDB
+dfu-util  
 
-## For Windoes user:
+risc-v tool chain  
 
-dfu-util
+GDB  
+
+## For Windows user:
+
+dfu-util  
 
 ## For Mac user:
+Follow the PlatformIO tutorial [HERE](https://platformio.org/platformio-ide)  
 
-Sorry we don't have Mac PC to test, you can reference the linux user guide to build the project:(
+And the other step is like as Linux tutorial.
+
 
 The enviorment setup guide
 The dfu-util tool
