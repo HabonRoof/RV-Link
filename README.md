@@ -19,16 +19,20 @@ RV-Link是一個使用GD32VF103 RISC-V架構微處理器的除錯計專案
 
 或者也可以買到更小更便宜的[GD32 RISC-V Pico Board](https://stage.mapleboard.org/gd32-risc-v-pico-product-page/)
 
-# How to use/如何使用
+# How to use/如何使用  
+
 To use this reposity, you will need a GD32VF103 seires board.
 And there are two ways to use this repository,  
+
 One is **Only upload prebuild firmware**  
 
 Another is **Build firmware from source code**
 
-If you only want to upload prebuild firmware, follow the step [HERE](https://github.com/HabonRoof/RV-Link/blob/master/README.md#UploadFirmwaretoGD32RISC-VNano/Pico)
+If you only want to upload the prebuild firmware, follow the step [HERE](https://github.com/HabonRoof/RV-Link/blob/master/README.md#upload-firmware-to-gd32-risc-v-nanopico)
 
-If you wwant to build firmware from source code, keep reading this documentation.
+If you prefer to build the firmware from source code, keep reading this documentation.
+
+To build the firmware form source, you will need:
 
 * First, buy a GD32 RISC-V Nano/Pico. 
 
@@ -54,36 +58,38 @@ If you wwant to build firmware from source code, keep reading this documentation
 * [GD32VF103CBT6 Datasheet]()
 * [PlatformIO official website]()
 
-# Environment Setup/環境建置  
+# 1. Environment Setup/環境建置  
 
 The GD32V development environment may be different depending on the OS of your PC.  
 There are three common used operation system, **Linux**, **Windows**, and **OS X**.
 Please make sure which OS you are using, and follow the guide to setup your development environment.  
 
 
-## For Linux user:
+## 1.1 For Linux user:
 Benefit from the spirit of open source of Linux, there are many wayes to build the RV-Link firmware, we have two recommend method:  
 
 * [PlatformIO](https://platformio.org/?utm_source=github&utm_medium=core)  
 
 * [RISC-V GNU toolchain](https://github.com/riscv/riscv-gnu-toolchain)
 
-### PlatformIO
+### 1.1.1 PlatformIO
 [PlatformIO environment setup](https://docs.platformio.org/en/latest/integration/ide/pioide.html)  
 
 繁體中文版教學連結：[GD32 RISC-V 開發板的PlatformIO開發環境建置](https://stage.mapleboard.org/platformio-environment-setup/)  
 
-99dfu-rule
+platform = gd32v@1.1.1
 
-platform = gd32v@1.1.1  
+### 1.1.2 RISC-V GNU Toolchain
 
-dfu-util  
 
-risc-v tool chain  
+# 2. Upload Firmware to GD32 RISC-V Nano/Pico  
 
-GDB  
+## 2.1 For Linux user:  
 
-## For Windows user:
+Install dfu-util to download the firmware into your target board.
+
+
+## 2.2 For Windows user:
 
 1.  You need "libusb" driver for Windows (Not GD32 official driver), the download link is [HERE](https://github.com/pbatard/libwdi/releases/download/b721/zadig-2.4.exe)  
 
@@ -103,7 +109,7 @@ You will get two directeries that is "GD32 MCU Dfu Drivers_v1.0.1.2316" and "GD3
 You can download the latest GD32VF103 DFU Tool at 
 dfu-util  
 
-## For OS X user:
+## 2.3 For OS X user:
 Follow the PlatformIO tutorial [HERE](https://platformio.org/platformio-ide)  
 
 And the other step is like as Linux tutorial.
@@ -112,4 +118,4 @@ And the other step is like as Linux tutorial.
 The enviorment setup guide
 The dfu-util tool
 
-# Upload Firmware to GD32 RISC-V Nano/Pico
+
