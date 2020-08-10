@@ -63,10 +63,7 @@ To build the firmware form source, you will need:
 
 * 第四，現在開發板已經化身為RV-Link，你可以將任意板子透過JTAG的腳位規範連接到RV-Link，利用這個除錯器開起嵌入式系統的開發之旅吧！  
 
-# References
-
-* [GD32VF103CBT6 Datasheet]()
-* [PlatformIO official website]()
+---
 
 # 1. Environment Setup
 
@@ -99,7 +96,9 @@ Open your VSCode and platformIO, install GD32V platform
 ![Install GD32V platform](Image/PIO1.png)
 
 Enter the following URL to get the newest platform configuration:
+<pre><code>
 https://github.com/sipeed/platform-gd32v.git
+</code></pre>
 
 After you done the whole process of installation of PlatformIO, then download this repository into a specificated directory.  
 
@@ -109,7 +108,14 @@ And open the RV-Link folder, change the code in platformio.ini, like the picture
 Make sure the code in **platform.ini** below is specify the platform version is gd32v@1.1.1
 platform = gd32v@1.1.1  
 
-And you can go to Upload page of this manual.
+Then click the "V" of the button toolbar, and click "arrow symbol" to upload the firmware.
+![Build and Upload](Image/PIO3.png)
+
+If the upload success, but the target board didn't work (the green LED didn't flash), it means the dfu-util is the old version(dfu-util -v shows the copyright end at 2016)  
+
+Please extract the firmware file built by platform IO at "RV-Link/.pio/build/sipeed-longan-nano/firmware.bin",  
+and upgrade the dfu-util to upload the .bin file to the GD32 RISC-V Nano/Pico correctlly.  
+By following the Chapter 2
 
 ### 1.1.2 RISC-V GNU Toolchain
 
@@ -120,8 +126,14 @@ The RISC-V GNU toolchain can be download [HERE](https://github.com/riscv/riscv-g
 For more information about how to use the toolchain, you can reference our [Mpb-toolchain-Example]()
 
 ## 1.2 For MS Windows User
+Follow the Microsoft instruction of VSCode [HERE](https://code.visualstudio.com/docs/?dv=win32user)
+And download the PlatformIO extenion as linux user.
 
 ## 1.3 For OS X User
+Follow the Microsoft instruction of VSCode [HERE](https://code.visualstudio.com/docs/?dv=osx)
+And download the PlatformIO extension as linux user.
+
+---
 
 # 2. Upload Firmware to GD32 RISC-V Nano/Pico  
 
@@ -131,25 +143,41 @@ Install the newest(2020-08-10) dfu-util to download the firmware into your targe
 
 The official source code is [HERE](https://sourceforge.net/p/dfu-util/dfu-util/ci/master/tree/), please follow the instruction of the README file of dfu-util.
 
+Let the development board get into DFU Mode:
+Continue press down the BOOT button, and single press RST button and release, then release the BOOT button.
+You can see the LED and LCD are both stop working, the GD32 RISC-V Nano/Pico is get into dfu mode.
+
+After installed the dfu-util, and download RV-Link_firmware_for_GD32_RISC-V_NanoPico.bin  
+Open the console and type:
+
+<pre><code>
+dfu-util -d 28e9:0189 -a 0 --dfuse-address 0x08000000:leave -D ~/Download/RV-Link_firmware_for_GD32_RISC-V_NanoPico.bin
+</pre></code>
+
+After the -D parameter,the firmware file path may be different depending on the user name.
+
+You can see the bin code download to the target successfully as the picture below:
+![Firmware Download](Image/Firmware_Upload_Success.png)
+
 ## 2.2 For Windows user:
 
-1.  You need "libusb" driver for Windows (Not GD32 official driver), the download link is [HERE](https://github.com/pbatard/libwdi/releases/download/b721/zadig-2.4.exe)  
+1.  You need Zadig "libusb" driver for Windows (Not GD32 official driver), the download link is [HERE](https://github.com/pbatard/libwdi/releases/download/b721/zadig-2.4.exe)  
 
 2. After download, launch "Zadig", and choose "GD32 Devices in DFU Mode", replace the driver into "WinUSB"  
-圖片  
+![Zadig driver](Image/WIN1)
 
 3. Download DFU Tool for Windows
+
 Download a DFU Tool for windows [HERE](http://dl.sipeed.com/LONGAN/Nano/Tools/GD32_MCU_Dfu_Tool_V3.8.1.5784_1.rar) and decompress it.  
 You will get two directeries that is "GD32 MCU Dfu Drivers_v1.0.1.2316" and "GD32 MCU Dfu Tool_v3.8.1.5784"  
+
 * Get into the driver directory, install the GD32 MCU Dfu Driver
-圖片
+![Install DFU for Windows](Image/WIN2)
+
 * Run the "GD32 MCU DFU Tool.exe", plug in the GD32 RISC-V Nano/Pico Board, and press down the "BOOT" button on the board, and single press "RST" button, then release the "BOOT" button. Now the program can identify the GD32V chip.
-圖片
 
 4. Upload the firmware (which file name extension is .bin), and setup the download address as 0x08000000, select "Verify after download" and click "OK" to download the formware file into GD32 RISC-V Nano/Pico.
-
-You can download the latest GD32VF103 DFU Tool at 
-dfu-util  
+![Upload firmware in windows](Image/WIN3)
 
 ## 2.3 For OS X user:
 Follow the PlatformIO tutorial [HERE](https://platformio.org/platformio-ide)  
