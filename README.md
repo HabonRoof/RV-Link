@@ -98,10 +98,13 @@ The PlatformIO has it's own atrical to tell you how to install their extension f
 Open your VSCode and platformIO, install GD32V platform 
 ![Install GD32V platform](Image/PIO1.png)
 
-Enter the followinf URL:
+Enter the following URL to get the newest platform configuration:
 https://github.com/sipeed/platform-gd32v.git
 
 After you done the whole process of installation of PlatformIO, then download this repository into a specificated directory.  
+
+And open the RV-Link folder, change the code in platformio.ini, like the picture below:
+![Change plarfom version](Image/PIO2.png)
 
 Make sure the code in **platform.ini** below is specify the platform version is gd32v@1.1.1
 platform = gd32v@1.1.1  
