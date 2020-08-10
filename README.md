@@ -108,7 +108,11 @@ And open the RV-Link folder, change the code in platformio.ini, like the picture
 Make sure the code in **platform.ini** below is specify the platform version is gd32v@1.1.1
 platform = gd32v@1.1.1  
 
+請確認platformio.ini檔案中的platform=gd32v@1.1.1
+
 Then click the "V" of the button toolbar, and click "arrow symbol" to upload the firmware.
+按下畫面下方的"V"來編譯原始碼，按下箭頭符號來上傳原始碼。
+
 ![Build and Upload](Image/PIO3.png)
 
 If the upload success, but the target board didn't work (the green LED didn't flash), it means the dfu-util is the old version(dfu-util -v shows the copyright end at 2016)  
@@ -117,21 +121,38 @@ Please extract the firmware file built by platform IO at "RV-Link/.pio/build/sip
 and upgrade the dfu-util to upload the .bin file to the GD32 RISC-V Nano/Pico correctlly.  
 By following the Chapter 2
 
+如果上傳成功，但是板子不會動作(閃爍綠色的板載LED燈)，那表示你的dfu-util是舊版本(可以輸入dfu-util -v 來確認版權是不是只有到2016)
+請將編譯好的韌體檔案抓出來，路徑會是"RV-Link/.pio/build/sipeed-longan-nano/firmware.bin"，並且更新你的dfu-util來將.bin檔上傳道GD32 RISC-V Nano/Pico上。
+請參考第二章的內容。
+
 ### 1.1.2 RISC-V GNU Toolchain
 
-To build whole things from scratch without PlatformIO is a channalge, but we have done this before, so just follow our step and enjoy the tast of success.
+To build whole things from scratch without PlatformIO is a challange, but we have done this before, so just follow our step and enjoy the tast of success.
 
 The RISC-V GNU toolchain can be download [HERE](https://github.com/riscv/riscv-gnu-toolchain) by RISC-V foundation.  
 
 For more information about how to use the toolchain, you can reference our [Mpb-toolchain-Example]()
 
+使用RISC-V GNU 工具鍊進行建置：
+不使用PlatformIO進行軟體的建置是個挑戰，但我們已經替你們走過一次了，只需要照著我們的教學就可以完成不依賴外掛插件來完成嵌入式系統的開發！  
+
+RISC-V工具鍊可以在RISC-V基金會的官方github [這裡](https://github.com/riscv/riscv-gnu-toolchain)進行下載  
+
+有關更多工具鍊的使用方法可以參考我們的[Mpb-toolchain-Example]()
+
 ## 1.2 For MS Windows User
 Follow the Microsoft instruction of VSCode [HERE](https://code.visualstudio.com/docs/?dv=win32user)
 And download the PlatformIO extenion as linux user.
 
+微軟作業系統的使用者可以參考[VSCode安裝說明](https://code.visualstudio.com/docs/?dv=win32user)
+而PlatformIO的安裝過程與linux相同。
+
 ## 1.3 For OS X User
 Follow the Microsoft instruction of VSCode [HERE](https://code.visualstudio.com/docs/?dv=osx)
-And download the PlatformIO extension as linux user.
+And download the PlatformIO extension as linux user.  
+
+OS X系統的使用者可以參考[VSCode安裝說明](https://code.visualstudio.com/docs/?dv=osx)
+而PlatformIO的安裝過程與linux相同。
 
 ---
 
@@ -139,7 +160,7 @@ And download the PlatformIO extension as linux user.
 
 ## 2.1 For Linux user:  
 
-Install the newest(2020-08-10) dfu-util to download the firmware into your target board.  
+Install the newest(2020-08-10) dfu-util to upload the firmware into your target board.  
 
 The official source code is [HERE](https://sourceforge.net/p/dfu-util/dfu-util/ci/master/tree/), please follow the instruction of the README file of dfu-util.
 
@@ -147,8 +168,16 @@ Let the development board get into DFU Mode:
 Continue press down the BOOT button, and single press RST button and release, then release the BOOT button.
 You can see the LED and LCD are both stop working, the GD32 RISC-V Nano/Pico is get into dfu mode.
 
+安裝最新版本(2020-08-10)的dfu-util工具來將韌體燒錄進開發板。
+官方的原始碼可以在[這裡](https://sourceforge.net/p/dfu-util/dfu-util/ci/master/tree/)取得，請依照README檔案中的只是來完成安裝。
+
+讓開發板進入DFU模式：
+先按下BOOT鍵不放，接著按一下RST鍵後放開，在鬆開BOOT鍵，你將會看到板子上的LED和LCD停止工作，那就代表CPU入DFU模式。
+
 After installed the dfu-util, and download RV-Link_firmware_for_GD32_RISC-V_NanoPico.bin  
 Open the console and type:
+
+安裝好最新的dfu-util後，在終端機視窗輸入：
 
 <pre><code>
 dfu-util -d 28e9:0189 -a 0 --dfuse-address 0x08000000:leave -D ~/Download/RV-Link_firmware_for_GD32_RISC-V_NanoPico.bin
@@ -156,31 +185,43 @@ dfu-util -d 28e9:0189 -a 0 --dfuse-address 0x08000000:leave -D ~/Download/RV-Lin
 
 After the -D parameter,the firmware file path may be different depending on the user name.
 
+在參數 -D 後方所接的韌體路徑名稱可能因為使用者不同而有所不同。
+
 You can see the bin code download to the target successfully as the picture below:
+
+你可以看到上傳成功的樣子如圖所示：
+
 ![Firmware Download](Image/Firmware_Upload_Success.png)
 
 ## 2.2 For Windows user:
 
 1.  You need Zadig "libusb" driver for Windows (Not GD32 official driver), the download link is [HERE](https://github.com/pbatard/libwdi/releases/download/b721/zadig-2.4.exe)  
+首先你需要安裝Zadig的USB驅動程式(非GD32)，可以在[這裡](https://github.com/pbatard/libwdi/releases/download/b721/zadig-2.4.exe)下載
 
-2. After download, launch "Zadig", and choose "GD32 Devices in DFU Mode", replace the driver into "WinUSB"  
+2. After download, launch "Zadig", and choose "GD32 Devices in DFU Mode", replace the driver into "WinUSB"
+安裝好之後，啟動Zadig，並選擇"GD32Devices in DFU Mode" 點選 replace the driver into "WinUSB"
+
 ![Zadig driver](Image/WIN1.png)
 
 3. Download DFU Tool for Windows
 
 Download a DFU Tool for windows [HERE](http://dl.sipeed.com/LONGAN/Nano/Tools/GD32_MCU_Dfu_Tool_V3.8.1.5784_1.rar) and decompress it.  
 You will get two directeries that is "GD32 MCU Dfu Drivers_v1.0.1.2316" and "GD32 MCU Dfu Tool_v3.8.1.5784"  
+下載Windows專用的DFU Tool，[下載網址](http://dl.sipeed.com/LONGAN/Nano/Tools/GD32_MCU_Dfu_Tool_V3.8.1.5784_1.rar)下載後解壓縮，你會的到兩個資料夾分別是"GD32 MCU Dfu Drivers_v1.0.1.2316" 和 "GD32 MCU Dfu Tool_v3.8.1.5784"
 
 * Get into the driver directory, install the GD32 MCU Dfu Driver
+首先進入驅動程式的資料夾，安裝GD32的驅動程式
 ![Install DFU for Windows](Image/WIN2.png)
 
 * Run the "GD32 MCU DFU Tool.exe", plug in the GD32 RISC-V Nano/Pico Board, and press down the "BOOT" button on the board, and single press "RST" button, then release the "BOOT" button. Now the program can identify the GD32V chip.
+接著啟動"GD32 MCU DFU Tool.exe"，並將GD32 RISC-V Nano/Pico開發板進入DFU模式，這樣DFU tool就可以辨識出我們的晶片。
 
 4. Upload the firmware (which file name extension is .bin), and setup the download address as 0x08000000, select "Verify after download" and click "OK" to download the formware file into GD32 RISC-V Nano/Pico.
+上傳韌體檔案(.bin結尾)，並將起始位址設為0x08000000，勾選"Verify after download"並點擊"OK"來上傳韌體檔案到GD32 RISC-V Nano/Pico。
+
 ![Upload firmware in windows](Image/WIN3.png)
 
 ## 2.3 For OS X user:
 Follow the PlatformIO tutorial [HERE](https://platformio.org/platformio-ide)  
-
 And the other step is like as Linux tutorial.
-
+依照PlatformIO的教學，其他步驟跟Linux一樣。
