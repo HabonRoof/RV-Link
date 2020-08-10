@@ -113,7 +113,7 @@ platform = gd32v@1.1.1
 Then click the "V" of the button toolbar, and click "arrow symbol" to upload the firmware.
 按下畫面下方的"V"來編譯原始碼，按下箭頭符號來上傳原始碼。
 
-![Build and Upload](Image/PIO3.png)
+![Build and Upload](Image/PIO4.png)
 
 If the upload success, but the target board didn't work (the green LED didn't flash), it means the dfu-util is the old version(dfu-util -v shows the copyright end at 2016)  
 
