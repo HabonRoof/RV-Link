@@ -191,7 +191,7 @@ You can see the bin code download to the target successfully as the picture belo
 
 你可以看到上傳成功的樣子如圖所示：
 
-![Firmware Download](Image/Firmware_Upload_Success.png)
+![Firmware Download](Image/PIO3.png)
 
 ## 2.2 For Windows user:
 
