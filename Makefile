@@ -18,3 +18,6 @@ $(OUTPUT_DIR)/%.elf:
 
 clean:
 	rm -rf output
+
+dfu: all
+	dfu-util -d 28e9:0189 -a 0 --dfuse-address 0x08000000:leave -D $(OUTPUT_DIR)/longan-nano+gd32vf103.bin

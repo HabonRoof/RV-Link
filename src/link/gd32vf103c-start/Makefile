@@ -46,7 +46,7 @@ AS_INCLUDES =
 AS_DEFS = 
 
 
-PREFIX = riscv-none-embed-
+PREFIX = riscv32-mapleboard-elf-
 MACHINE = -march=rv32imac -mabi=ilp32 -msmall-data-limit=8
 CFLAGS = $(MACHINE)
 ASFLAGS = $(MACHINE)
