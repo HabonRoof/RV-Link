@@ -40,10 +40,20 @@ To build the firmware form source, you will need:
 
 * Third, upload the code through DFU mode, and ensure the on-board green LED flash. 
 
-* Fourth, Now the board turned into RV-Link, so you can connect to another target (such as another GD32 RISC-V Board or any development board), follow the JTAG pinout, and use debugger to start yout journy of embedded system!   
+* Fourth, the board turned into RV-Link, so you can connect to another target (such as another GD32 RISC-V Board or any development board), follow the JTAG pinout, and use debugger to start yout journy of embedded system!   
 
 
-要使用這個資料庫，你會需要DS32VF103系列的開發板  
+要使用這個資料庫，你會需要DS32VF103系列的開發板，同時有兩種方法可以使用這個資料庫：  
+
+第一種是只上傳預先編譯好的二進制機器碼到開發板上，省去編譯與環境設定的麻煩  
+
+第二種則是從原始碼開始建立整份韌體。  
+
+選擇第一種的使用者可以參考下面連結步驟的說明[HERE](https://github.com/HabonRoof/RV-Link/blob/master/README.md#upload-firmware-to-gd32-risc-v-nanopico)  
+
+選則第二種的使用者先繼續往下閱讀這份文件。  
+
+要從頭編譯原始碼，首先你會需要以下設備：
 
 * 首先購買一塊GD32 RISC-V Nano/Pico板。  
 
@@ -64,9 +74,13 @@ The GD32V development environment may be different depending on the OS of your P
 There are three common used operation system, **Linux**, **Windows**, and **OS X**.
 Please make sure which OS you are using, and follow the guide to setup your development environment.  
 
+GD32的開發環境會因為你使用的個人電腦作業系統的不同而有不同。
+但是常見的三種作業系統：**Linux**, **Windows**, 以及 **OS X** 都有支援，請依照自己的作業系統選擇開發環境。
 
 ## 1.1 For Linux user:
-Benefit from the spirit of open source of Linux, there are many wayes to build the RV-Link firmware, we have two recommend method:  
+Benefit from the spirit of open source of Linux, you can build the firmware by PlatformIO or RISC-V GNU toolchain.  
+
+受益於Linux的開源精神，你可以使用PlatformIO或者RISC-V GNU 工具鍊來進行建置。
 
 * [PlatformIO](https://platformio.org/?utm_source=github&utm_medium=core)  
 
@@ -74,11 +88,18 @@ Benefit from the spirit of open source of Linux, there are many wayes to build t
 
 ### 1.1.1 PlatformIO  
 
-The PlatformIO has it's own atrical to tell you how to install their extension on Visual Studio Code (VSCode) [HERE](https://docs.platformio.org/en/latest/integration/ide/pioide.html)  
+中文版教學連結：[GD32 RISC-V 開發板的PlatformIO開發環境建置](https://stage.mapleboard.org/platformio-environment-setup/)  
 
-繁體中文版教學連結：[GD32 RISC-V 開發板的PlatformIO開發環境建置](https://stage.mapleboard.org/platformio-environment-setup/)  
+You need to install Visual Studio Code (VSCode) first.
+Download the Microsoft original .deb packeage [HERE](https://code.visualstudio.com/)  
+
+The PlatformIO has it's own atrical to tell you how to install their extension for Visual Studio Code (VSCode) [HERE](https://docs.platformio.org/en/latest/integration/ide/vscode.html#ide-vscode)  
 
 Open your VSCode and platformIO, install GD32V platform 
+![Install GD32V platform](Image/PIO1.png)
+
+Enter the followinf URL:
+https://github.com/sipeed/platform-gd32v.git
 
 After you done the whole process of installation of PlatformIO, then download this repository into a specificated directory.  
 
@@ -91,17 +112,21 @@ And you can go to Upload page of this manual.
 
 To build whole things from scratch without PlatformIO is a channalge, but we have done this before, so just follow our step and enjoy the tast of success.
 
+The RISC-V GNU toolchain can be download [HERE](https://github.com/riscv/riscv-gnu-toolchain) by RISC-V foundation.  
 
-The RISC-V GNU toolchain can be download [HERE](https://github.com/riscv/riscv-gnu-toolchain) by RISC-V foundation.
+For more information about how to use the toolchain, you can reference our [Mpb-toolchain-Example]()
 
+## 1.2 For MS Windows User
 
+## 1.3 For OS X User
 
 # 2. Upload Firmware to GD32 RISC-V Nano/Pico  
 
 ## 2.1 For Linux user:  
 
-Install dfu-util to download the firmware into your target board.
+Install the newest(2020-08-10) dfu-util to download the firmware into your target board.  
 
+The official source code is [HERE](https://sourceforge.net/p/dfu-util/dfu-util/ci/master/tree/), please follow the instruction of the README file of dfu-util.
 
 ## 2.2 For Windows user:
 
@@ -127,9 +152,4 @@ dfu-util
 Follow the PlatformIO tutorial [HERE](https://platformio.org/platformio-ide)  
 
 And the other step is like as Linux tutorial.
-
-
-The enviorment setup guide
-The dfu-util tool
-
 
