@@ -164,7 +164,7 @@ You can see the bin code download to the target successfully as the picture belo
 1.  You need Zadig "libusb" driver for Windows (Not GD32 official driver), the download link is [HERE](https://github.com/pbatard/libwdi/releases/download/b721/zadig-2.4.exe)  
 
 2. After download, launch "Zadig", and choose "GD32 Devices in DFU Mode", replace the driver into "WinUSB"  
-![Zadig driver](Image/WIN1)
+![Zadig driver](Image/WIN1.png)
 
 3. Download DFU Tool for Windows
 
@@ -172,12 +172,12 @@ Download a DFU Tool for windows [HERE](http://dl.sipeed.com/LONGAN/Nano/Tools/GD
 You will get two directeries that is "GD32 MCU Dfu Drivers_v1.0.1.2316" and "GD32 MCU Dfu Tool_v3.8.1.5784"  
 
 * Get into the driver directory, install the GD32 MCU Dfu Driver
-![Install DFU for Windows](Image/WIN2)
+![Install DFU for Windows](Image/WIN2.png)
 
 * Run the "GD32 MCU DFU Tool.exe", plug in the GD32 RISC-V Nano/Pico Board, and press down the "BOOT" button on the board, and single press "RST" button, then release the "BOOT" button. Now the program can identify the GD32V chip.
 
 4. Upload the firmware (which file name extension is .bin), and setup the download address as 0x08000000, select "Verify after download" and click "OK" to download the formware file into GD32 RISC-V Nano/Pico.
-![Upload firmware in windows](Image/WIN3)
+![Upload firmware in windows](Image/WIN3.png)
 
 ## 2.3 For OS X user:
 Follow the PlatformIO tutorial [HERE](https://platformio.org/platformio-ide)  
